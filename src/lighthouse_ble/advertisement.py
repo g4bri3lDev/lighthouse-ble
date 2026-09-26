@@ -1,7 +1,7 @@
 """Parse BLE advertisements into LighthouseAdvertisement.
 
-The V2 payload layout comes from a single source (OpenVR-SpaceCalibrator) and is provisional
-until confirmed on hardware; the raw payload is always kept for inspection.
+The V2 payload layout is provisional until confirmed on hardware; the raw payload is always
+kept for inspection.
 """
 
 import re
