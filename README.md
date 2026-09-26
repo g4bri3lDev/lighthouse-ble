@@ -16,7 +16,8 @@ HTC Vive (V1, `HTC BS …`). Built to back a Home Assistant integration, usable 
 ## Install
 
 ```bash
-pip install lighthouse-ble
+uv add lighthouse-ble            # as a library dependency
+uvx lighthouse-ble scan          # run the CLI without installing
 ```
 
 ## Command line
