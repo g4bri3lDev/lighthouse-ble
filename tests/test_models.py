@@ -1,6 +1,7 @@
 """Models, constants and the exception hierarchy."""
 
 from dataclasses import FrozenInstanceError
+from importlib.metadata import version
 
 import pytest
 
@@ -23,8 +24,8 @@ from lighthouse_ble.models import (
 )
 
 
-def test_package_version() -> None:
-    assert lighthouse_ble.__version__ == "0.0.0"
+def test_package_version_comes_from_metadata() -> None:
+    assert lighthouse_ble.__version__ == version("lighthouse-ble")
 
 
 def test_power_state_values_are_stable_strings() -> None:
