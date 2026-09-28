@@ -1,7 +1,7 @@
 """Parse BLE advertisements into LighthouseAdvertisement.
 
-The V2 payload layout is provisional until confirmed on hardware; the raw payload is always
-kept for inspection.
+V2 payload (7 bytes after Valve's company ID): [2] channel, [4] power code (same codes as the
+GATT power characteristic), [6] fault flag. Bytes 0-1, 3 and 5 are constant across power states.
 """
 
 import re

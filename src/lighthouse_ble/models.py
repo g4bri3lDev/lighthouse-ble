@@ -23,7 +23,7 @@ class PowerState(StrEnum):
 
 @dataclass(frozen=True, slots=True)
 class LighthouseAdvertisement:
-    """What one BLE advertisement tells us. V2 state fields are provisional (spec 2.1)."""
+    """What one BLE advertisement tells us; V2 advertisements also carry the live state."""
 
     version: Version
     name: str | None

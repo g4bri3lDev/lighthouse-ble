@@ -24,8 +24,8 @@ _POWER_CODES: Final[dict[int, PowerState]] = {
 
 SLEEP_TWO_STEP: Final[tuple[bytes, ...]] = (b"\x01", b"\x00")
 SLEEP_ONE_STEP: Final[tuple[bytes, ...]] = (b"\x00",)
-# Which sleep sequence new-firmware V2 stations get; settled on real hardware (spec section 8).
-SLEEP_SEQUENCE: tuple[bytes, ...] = SLEEP_TWO_STEP
+# Sleep sequence for new-firmware V2 stations. A single 00 is enough (also from standby).
+SLEEP_SEQUENCE: tuple[bytes, ...] = SLEEP_ONE_STEP
 
 V1_WAKE_ANY_ID: Final = 0xFFFFFFFF
 _V1_MAGIC: Final = 0x12

@@ -109,7 +109,7 @@ def test_on_by_name(radio: Radio, capsys: pytest.CaptureFixture[str]) -> None:
 @pytest.mark.usefixtures("scanner")
 def test_off_by_address(radio: Radio) -> None:
     assert main(["--scan-time", "0", "off", "aa:bb:cc:dd:ee:01"]) == 0
-    assert radio.client.writes == [(V2_POWER_UUID, b"\x01", True), (V2_POWER_UUID, b"\x00", True)]
+    assert radio.client.writes == [(V2_POWER_UUID, b"\x00", True)]
 
 
 @pytest.mark.usefixtures("scanner")

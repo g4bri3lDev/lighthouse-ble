@@ -1,4 +1,4 @@
-"""Passive advertisement parsing (provisional V2 layout, spec 2.1)."""
+"""Passive advertisement parsing against synthetic and captured payloads."""
 
 from typing import Any
 
@@ -8,7 +8,9 @@ from lighthouse_ble.advertisement import parse_advertisement
 from lighthouse_ble.models import Version
 from tests.helpers import load_json
 
-CASES: list[dict[str, Any]] = load_json("synthetic_advertisements.json")
+CASES: list[dict[str, Any]] = load_json("synthetic_advertisements.json") + load_json(
+    "captured_advertisements.json"
+)
 
 
 @pytest.mark.parametrize("case", CASES, ids=[case["id"] for case in CASES])

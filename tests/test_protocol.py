@@ -47,9 +47,9 @@ def test_unknown_power_code_is_logged(caplog: pytest.LogCaptureFixture) -> None:
     assert "0x42" in caplog.text
 
 
-def test_default_sleep_sequence_is_two_step() -> None:
-    assert SLEEP_SEQUENCE == SLEEP_TWO_STEP == (b"\x01", b"\x00")
-    assert SLEEP_ONE_STEP == (b"\x00",)
+def test_default_sleep_sequence_is_one_step() -> None:
+    assert SLEEP_SEQUENCE == SLEEP_ONE_STEP == (b"\x00",)
+    assert SLEEP_TWO_STEP == (b"\x01", b"\x00")
 
 
 @pytest.mark.parametrize(
@@ -57,17 +57,17 @@ def test_default_sleep_sequence_is_two_step() -> None:
     [
         (PowerState.ON, (b"\x01",)),
         (PowerState.STANDBY, (b"\x02",)),
-        (PowerState.SLEEP, (b"\x01", b"\x00")),
+        (PowerState.SLEEP, (b"\x00",)),
     ],
 )
 def test_v2_power_writes_new_firmware(target: PowerState, writes: tuple[bytes, ...]) -> None:
     assert v2_power_writes(target, legacy_firmware=False) == writes
 
 
-def test_v2_sleep_one_step_variant() -> None:
+def test_v2_sleep_two_step_variant() -> None:
     assert v2_power_writes(
-        PowerState.SLEEP, legacy_firmware=False, sleep_sequence=SLEEP_ONE_STEP
-    ) == (b"\x00",)
+        PowerState.SLEEP, legacy_firmware=False, sleep_sequence=SLEEP_TWO_STEP
+    ) == (b"\x01", b"\x00")
 
 
 @pytest.mark.parametrize(

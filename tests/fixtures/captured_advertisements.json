@@ -1,0 +1,16 @@
+[
+  {"id": "captured-on-ch1", "name": "LHB-747A9BC5", "manufacturer_data": {"1373": "000201010b0600"},
+   "expected": {"version": "v2", "name": "LHB-747A9BC5", "channel": 1, "power": "on", "raw_power": 11, "faulty": false, "raw": "000201010b0600"}},
+  {"id": "captured-on-ch2", "name": "LHB-5E72F725", "manufacturer_data": {"1373": "000202010b0600"},
+   "expected": {"version": "v2", "name": "LHB-5E72F725", "channel": 2, "power": "on", "raw_power": 11, "faulty": false, "raw": "000202010b0600"}},
+  {"id": "captured-standby", "name": "LHB-747A9BC5", "manufacturer_data": {"1373": "00020101020600"},
+   "expected": {"version": "v2", "name": "LHB-747A9BC5", "channel": 1, "power": "standby", "raw_power": 2, "faulty": false, "raw": "00020101020600"}},
+  {"id": "captured-sleep", "name": "LHB-747A9BC5", "manufacturer_data": {"1373": "00020101000600"},
+   "expected": {"version": "v2", "name": "LHB-747A9BC5", "channel": 1, "power": "sleep", "raw_power": 0, "faulty": false, "raw": "00020101000600"}},
+  {"id": "captured-waking-08", "name": "LHB-747A9BC5", "manufacturer_data": {"1373": "00020101080600"},
+   "expected": {"version": "v2", "name": "LHB-747A9BC5", "channel": 1, "power": "booting", "raw_power": 8, "faulty": false, "raw": "00020101080600"}},
+  {"id": "captured-waking-01", "name": "LHB-747A9BC5", "manufacturer_data": {"1373": "00020101010600"},
+   "expected": {"version": "v2", "name": "LHB-747A9BC5", "channel": 1, "power": "booting", "raw_power": 1, "faulty": false, "raw": "00020101010600"}},
+  {"id": "captured-waking-09", "name": "LHB-747A9BC5", "manufacturer_data": {"1373": "00020101090600"},
+   "expected": {"version": "v2", "name": "LHB-747A9BC5", "channel": 1, "power": "booting", "raw_power": 9, "faulty": false, "raw": "00020101090600"}}
+]

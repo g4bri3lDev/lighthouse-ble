@@ -6,12 +6,12 @@ HTC Vive (V1, `HTC BS …`). Built to back a Home Assistant integration, usable 
 | | V2 (Valve Index) | V1 (HTC Vive) |
 |---|---|---|
 | Power | on / standby / sleep | on / sleep |
-| State | passive from advertisements (provisional), or GATT read | not readable (optimistic) |
+| State | passive from advertisements, or GATT read | not readable (optimistic) |
 | Identify (blink LED) | yes | — |
 | Channel 1–16 | read / write | — |
 
-> **Provisional:** decoding V2 state from advertisements has not been confirmed on hardware yet.
-> The raw payload is always exposed as `LighthouseAdvertisement.raw` so mismatches are visible.
+V2 stations advertise their power state, channel and fault flag, so state updates need no
+connection. Waking from sleep takes about 11 s (reported as `booting`), from standby about 1 s.
 
 ## Install
 

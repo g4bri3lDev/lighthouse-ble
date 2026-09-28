@@ -20,6 +20,7 @@ from lighthouse_ble.models import (
     PowerState,
     Version,
 )
+from lighthouse_ble.protocol import SLEEP_TWO_STEP
 from tests.fake_ble import V2_DEVICE, FakeCharacteristic, FakeClient, Radio, v2_characteristics
 
 P, CH, ID = V2_POWER_UUID, V2_CHANNEL_UUID, V2_IDENTIFY_UUID
@@ -109,7 +110,13 @@ async def test_set_power_on_new_firmware(radio: Radio) -> None:
     assert radio.client.disconnects == 1
 
 
-async def test_sleep_uses_two_step_sequence(radio: Radio) -> None:
+async def test_sleep_is_a_single_write(radio: Radio) -> None:
+    await BaseStationV2(V2_DEVICE).set_power(PowerState.SLEEP)
+    assert radio.client.writes == [(P, b"\x00", True)]
+
+
+async def test_sleep_two_step_variant(radio: Radio, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr("lighthouse_ble.protocol.SLEEP_SEQUENCE", SLEEP_TWO_STEP)
     await BaseStationV2(V2_DEVICE).set_power(PowerState.SLEEP)
     assert radio.client.writes == [(P, b"\x01", True), (P, b"\x00", True)]
 
@@ -251,7 +258,10 @@ async def test_connect_failure_raises_connection_error_and_keeps_state(
     assert station.state == BaseStationState()
 
 
-async def test_failure_mid_sequence_disconnects_and_keeps_state(radio: Radio) -> None:
+async def test_failure_mid_sequence_disconnects_and_keeps_state(
+    radio: Radio, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr("lighthouse_ble.protocol.SLEEP_SEQUENCE", SLEEP_TWO_STEP)
     radio.client.fail_on_write = 1
     station = BaseStationV2(V2_DEVICE)
     with pytest.raises(LighthouseConnectionError):
