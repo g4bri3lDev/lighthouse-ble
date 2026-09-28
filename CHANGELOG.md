@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/g4bri3lDev/lighthouse-ble/compare/v0.1.0...v0.1.1) (2026-09-28)
+
+
+### Bug Fixes
+
+* sleep V2 stations with a single write, as confirmed on hardware ([7c4d7b9](https://github.com/g4bri3lDev/lighthouse-ble/commit/7c4d7b9947e17489cf424c629fd2a94f2642f2eb))
+
 ## 0.1.0 (2026-09-26)
 
 
