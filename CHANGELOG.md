@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/g4bri3lDev/lighthouse-ble/compare/v0.1.1...v0.2.0) (2026-09-28)
+
+
+### Features
+
+* expose product name and manufacturer on base stations ([4146479](https://github.com/g4bri3lDev/lighthouse-ble/commit/4146479a200fe9e4bff2c615d946985468089fd7))
+
 ## [0.1.1](https://github.com/g4bri3lDev/lighthouse-ble/compare/v0.1.0...v0.1.1) (2026-09-28)
 
 
