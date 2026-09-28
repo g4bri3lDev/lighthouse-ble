@@ -129,6 +129,7 @@ def test_info_v2(radio: Radio, capsys: pytest.CaptureFixture[str]) -> None:
     assert main(["--scan-time", "0", "info", "LHB-1A2B3C4D"]) == 0
     lines = capsys.readouterr().out.splitlines()
     assert lines[0] == "LHB-1A2B3C4D (AA:BB:CC:DD:EE:01, V2)"
+    assert lines[1] == "  product       Base Station 2.0 (Valve)"
     assert "  firmware      1.2.3 build 42" in lines
     assert "  manufacturer  -" in lines
     assert "  power         on" in lines
@@ -142,6 +143,7 @@ def test_info_v1(radio: Radio, capsys: pytest.CaptureFixture[str]) -> None:
     assert main(["--scan-time", "0", "info", "HTC BS 12AB34"]) == 0
     out = capsys.readouterr().out
     assert "V1" in out
+    assert "  product       Base Station 1.0 (HTC)" in out
     assert "power" not in out
 
 

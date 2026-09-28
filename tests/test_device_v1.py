@@ -73,6 +73,8 @@ async def test_v1_device_info(v1_radio: Radio) -> None:
 def test_v1_has_no_v2_operations() -> None:
     station = BaseStationV1(V1_DEVICE)
     assert station.version is Version.V1
+    assert station.product_name == "Base Station 1.0"
+    assert station.manufacturer == "HTC"
     assert not hasattr(station, "identify")
     assert not hasattr(station, "set_channel")
 

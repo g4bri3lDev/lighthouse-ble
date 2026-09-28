@@ -46,6 +46,8 @@ def test_starts_with_unknown_state() -> None:
     assert station.name == "LHB-1A2B3C4D"
     assert station.address == "AA:BB:CC:DD:EE:01"
     assert station.version is Version.V2
+    assert station.product_name == "Base Station 2.0"
+    assert station.manufacturer == "Valve"
     assert station.supports_standby is None
 
 

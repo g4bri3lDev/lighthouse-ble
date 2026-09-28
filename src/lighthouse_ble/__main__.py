@@ -105,6 +105,7 @@ def _require_v2(station: BaseStation) -> BaseStationV2:
 async def _info(station: BaseStation) -> int:
     info = await station.read_device_info()
     print(f"{station.name} ({station.address}, {station.version.value.upper()})")
+    print(f"  {'product':13} {station.product_name} ({station.manufacturer})")
     rows = [
         ("model", info.model),
         ("serial", info.serial),

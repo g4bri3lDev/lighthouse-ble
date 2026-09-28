@@ -56,6 +56,8 @@ class BaseStation(ABC):
     """Common behaviour of V1 and V2 base stations."""
 
     version: ClassVar[Version]
+    product_name: ClassVar[str]
+    manufacturer: ClassVar[str]
 
     def __init__(
         self, ble_device: BLEDevice, advertisement: LighthouseAdvertisement | None = None
@@ -171,6 +173,8 @@ class BaseStationV2(BaseStation):
     """Valve Index / Lighthouse 2.0 base station."""
 
     version = Version.V2
+    product_name = "Base Station 2.0"
+    manufacturer = "Valve"
 
     def __init__(
         self, ble_device: BLEDevice, advertisement: LighthouseAdvertisement | None = None
@@ -245,6 +249,8 @@ class BaseStationV1(BaseStation):
     """HTC Vive (Lighthouse 1.0) base station. Its state cannot be read; it is optimistic."""
 
     version = Version.V1
+    product_name = "Base Station 1.0"
+    manufacturer = "HTC"
 
     def __init__(
         self,
